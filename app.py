@@ -34,7 +34,8 @@ with st.form("agregar_producto"):
         }
         st.session_state["productos"].append(nuevo)
         st.success(f"✅ Producto '{nombre}' agregado correctamente")
-
+ # 🔥 Guardar productos en CSV para persistencia
+        pd.DataFrame(st.session_state["productos"]).to_csv(ARCHIVO, index=False)
 # Mostrar productos registrados
 st.subheader("📦 Productos disponibles")
 if len(st.session_state["productos"]) == 0:
