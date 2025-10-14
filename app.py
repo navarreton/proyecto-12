@@ -43,3 +43,13 @@ if len(st.session_state["productos"]) == 0:
 else:
     for p in st.session_state["productos"]:
         st.write(f"**{p['nombre']}** - {p['cantidad']} kg - ${p['precio']} COP/kg - 👨‍🌾 {p['productor']}")
+if submit:
+    nuevo = {
+        "nombre": nombre,
+        "cantidad": cantidad,
+        "precio": precio,
+        "productor": productor
+    }
+    st.session_state["productos"].append(nuevo)
+    pd.DataFrame(st.session_state["productos"]).to_csv(ARCHIVO, index=False)  # 💾 Guarda el archivo
+    st.success(f"✅ Producto '{nombre}' agregado correctamente")
