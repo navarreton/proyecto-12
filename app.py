@@ -1,7 +1,14 @@
 import streamlit as st
 
 st.set_page_config(page_title="AgroConecta", page_icon="🌽")
+ARCHIVO = "productos.csv"
 
+# Cargar productos si existe el archivo
+if "productos" not in st.session_state:
+    if os.path.exists(ARCHIVO):
+        st.session_state["productos"] = pd.read_csv(ARCHIVO).to_dict("records")
+    else:
+        st.session_state["productos"] = []
 # Inicializar almacenamiento temporal
 if "productos" not in st.session_state:
     st.session_state["productos"] = []
