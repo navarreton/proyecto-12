@@ -11,9 +11,7 @@ if "productos" not in st.session_state:
         st.session_state["productos"] = pd.read_csv(ARCHIVO).to_dict("records")
     else:
         st.session_state["productos"] = []
-# Inicializar almacenamiento temporal
-if "productos" not in st.session_state:
-    st.session_state["productos"] = []
+
 
 # Título e introducción
 st.title("🌾 AgroConecta")
