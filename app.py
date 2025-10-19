@@ -15,11 +15,11 @@ if "productos" not in st.session_state:
 
 # Título e introducción
 st.title("🌾 Biofarmers")
-st.write("Conecta directamente a campesinos y compradores para reducir el desperdicio de alimentos.")
+st.write("designed to connect farmers directly with consumers.")
 
 # Formulario para agregar productos
 with st.form("add_product"):
-    nombre = st.text_input("name of producto")
+    nombre = st.text_input("name of product")
     cantidad = st.number_input("available quantity (kg)", min_value=1)
     precio = st.number_input("Price for kg (COP)", min_value=100)
     productor = st.text_input("name of product")
@@ -39,7 +39,7 @@ with st.form("add_product"):
 # Mostrar productos registrados
 st.subheader("📦 available Products")
 if len(st.session_state["products"]) == 0:
-    st.info("Aún no hay productos registrados.")
+    st.info("   N/A products.")
 else:
     for p in st.session_state["products"]:
         st.write(f"**{p['name']}** - {p['quantity']} kg - ${p['price']} COP/kg - 👨‍🌾 {p['product']}")
