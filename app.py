@@ -39,7 +39,7 @@ with st.form("add_product"):
 # Mostrar productos registrados
 st.subheader("📦 available Products")
 if len(st.session_state["products"]) == 0:
-    st.info("   N/A products.")
+    st.info("N/A products.")
 else:
     for p in st.session_state["products"]:
         st.write(f"**{p['name']}** - {p['quantity']} kg - ${p['price']} COP/kg - 👨‍🌾 {p['product']}")
