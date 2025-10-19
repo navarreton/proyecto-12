@@ -32,16 +32,16 @@ with st.form("agregar_product"):
             "precio": precio,
             "productor": productor
         }
-        st.session_state["productos"].append(nuevo)
+        st.session_state["products"].append(nuevo)
         st.success(f"✅ Producto '{nombre}' agregado correctamente")
  # 🔥 Guardar productos en CSV para persistencia
-        pd.DataFrame(st.session_state["productos"]).to_csv(ARCHIVO, index=False)
+        pd.DataFrame(st.session_state["products"]).to_csv(ARCHIVO, index=False)
 # Mostrar productos registrados
 st.subheader("📦 Productos disponibles")
 if len(st.session_state["products"]) == 0:
     st.info("Aún no hay productos registrados.")
 else:
-    for p in st.session_state["productos"]:
+    for p in st.session_state["products"]:
         st.write(f"**{p['nombre']}** - {p['cantidad']} kg - ${p['precio']} COP/kg - 👨‍🌾 {p['productor']}")
 if submit:
     nuevo = {
