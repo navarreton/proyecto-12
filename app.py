@@ -38,7 +38,7 @@ with st.form("agregar_product"):
         pd.DataFrame(st.session_state["productos"]).to_csv(ARCHIVO, index=False)
 # Mostrar productos registrados
 st.subheader("📦 Productos disponibles")
-if len(st.session_state["productos"]) == 0:
+if len(st.session_state["products"]) == 0:
     st.info("Aún no hay productos registrados.")
 else:
     for p in st.session_state["productos"]:
