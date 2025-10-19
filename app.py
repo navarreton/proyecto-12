@@ -51,5 +51,5 @@ if submit:
         "productor": productor
     }
     st.session_state["products"].append(nuevo)
-    pd.DataFrame(st.session_state["productos"]).to_csv(ARCHIVO, index=False)  # 💾 Guarda el archivo
+    pd.DataFrame(st.session_state["products"]).to_csv(ARCHIVO, index=False)  # 💾 Guarda el archivo
     st.success(f"✅ Producto '{nombre}' agregado correctamente")
