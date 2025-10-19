@@ -2,28 +2,28 @@ import streamlit as st
 import os
 import pandas as pd
 
-st.set_page_config(page_title="AgroConecta", page_icon="🌽")
+st.set_page_config(page_title="BIOFARMERS", page_icon="🌽")
 ARCHIVO = "productos.csv"
 
 # Cargar productos si existe el archivo
 if "productos" not in st.session_state:
     if os.path.exists(ARCHIVO):
-        st.session_state["productos"] = pd.read_csv(ARCHIVO).to_dict("records")
+        st.session_state["products"] = pd.read_csv(ARCHIVO).to_dict("records")
     else:
-        st.session_state["productos"] = []
+        st.session_state["products"] = []
 
 
 # Título e introducción
-st.title("🌾 AgroConecta")
+st.title("🌾 BIOFARMERS")
 st.write("Conecta directamente a campesinos y compradores para reducir el desperdicio de alimentos.")
 
 # Formulario para agregar productos
-with st.form("agregar_producto"):
-    nombre = st.text_input("Nombre del producto")
-    cantidad = st.number_input("Cantidad disponible (kg)", min_value=1)
-    precio = st.number_input("Precio por kg (COP)", min_value=100)
-    productor = st.text_input("Nombre del productor")
-    submit = st.form_submit_button("Agregar producto")
+with st.form("agregar_product"):
+    nombre = st.text_input("Name of product")
+    cantidad = st.number_input("available quantity  (kg)", min_value=1)
+    precio = st.number_input("Price for kg (COP)", min_value=100)
+    productor = st.text_input("Name of productor")
+    submit = st.form_submit_button("Add producto")
 
     if submit:
         nuevo = {
